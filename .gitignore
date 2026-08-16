@@ -1,0 +1,19 @@
+# Python bytecode and build products
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Virtual environment. Recreate with: uv sync
+.venv/
+
+# Lab outputs. Trained adapters are large and reproducible from the labs;
+# recorded measurements are specific to one machine and one run.
+artifacts/
+results/*.json
+
+# Personal Claude Code settings. The shared allowlist lives in
+# .claude/settings.json, which is checked in on purpose.
+.claude/settings.local.json
+
+# macOS
+.DS_Store

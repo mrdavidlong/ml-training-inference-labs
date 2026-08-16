@@ -1,0 +1,25 @@
+{"instruction":"Define inference in machine learning in one sentence.","input":"","output":"Inference is the process of using a trained model to produce a prediction or generated output from new input."}
+{"instruction":"Expand the acronym LLM.","input":"","output":"LLM means large language model."}
+{"instruction":"Expand the acronym GPU.","input":"","output":"GPU means graphics processing unit."}
+{"instruction":"What is model training?","input":"","output":"Model training adjusts parameters so that a model performs better on examples from a training dataset."}
+{"instruction":"Explain a training epoch simply.","input":"","output":"An epoch is one complete pass through the training dataset."}
+{"instruction":"What does a loss function measure?","input":"","output":"A loss function measures how far a model's prediction is from the desired answer."}
+{"instruction":"Explain gradient descent simply.","input":"","output":"Gradient descent repeatedly changes model parameters in the direction that reduces the loss."}
+{"instruction":"What is supervised learning?","input":"","output":"Supervised learning trains on examples that include both inputs and desired outputs."}
+{"instruction":"What is unsupervised learning?","input":"","output":"Unsupervised learning discovers structure in data without provided target labels."}
+{"instruction":"What is reinforcement learning?","input":"","output":"Reinforcement learning teaches an agent through actions, rewards, and repeated interaction with an environment."}
+{"instruction":"What is a hyperparameter?","input":"","output":"A hyperparameter is a setting chosen before or during training, such as learning rate, batch size, or number of epochs."}
+{"instruction":"Why split data into training and test sets?","input":"","output":"The training set fits the model, while the separate test set estimates performance on unseen data."}
+{"instruction":"Explain overfitting simply.","input":"","output":"Overfitting happens when a model memorizes training details but performs poorly on new examples."}
+{"instruction":"What is K-means?","input":"","output":"K-means is an unsupervised algorithm that assigns points to the nearest of K learned cluster centers."}
+{"instruction":"What is linear regression?","input":"","output":"Linear regression predicts a numeric value using a weighted sum of input features plus a bias."}
+{"instruction":"What is LoRA?","input":"","output":"Low-Rank Adaptation freezes the base model and trains small low-rank update matrices, reducing fine-tuning cost."}
+{"instruction":"Why does LoRA use less storage?","input":"","output":"It saves only the small adapter weights instead of a complete copy of the base model."}
+{"instruction":"What is a token?","input":"","output":"A token is a unit of text, such as a word fragment, that a language model processes as an integer identifier."}
+{"instruction":"What is a batch?","input":"","output":"A batch is a group of training examples processed together before a parameter update."}
+{"instruction":"What is the KV cache?","input":"","output":"The key-value cache stores attention keys and values from earlier tokens so inference does not recompute them at every decoding step."}
+{"instruction":"Give one difference between training and inference.","input":"","output":"Training updates model parameters; inference keeps them fixed and uses them to produce outputs."}
+{"instruction":"Why use a validation set?","input":"","output":"A validation set helps choose hyperparameters and detect overfitting without using the final test set."}
+{"instruction":"What does quantization do?","input":"","output":"Quantization represents model values with fewer bits to reduce memory use and sometimes improve inference speed."}
+{"instruction":"Why measure a baseline?","input":"","output":"A baseline shows whether a later change actually improved the result under comparable conditions."}
+

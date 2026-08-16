@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(uv run python -m unittest *)",
+      "Bash(uv run inference-lab-doctor)",
+      "Bash(uv run inference-lab-doctor *)",
+      "Bash(uv run inference-lab-serve --dry-run *)",
+      "Bash(uv run ml-lab-linear *)",
+      "Bash(uv run ml-lab-kmeans *)",
+      "Bash(uv run ml-lab-q-learning *)",
+      "Bash(uv run ml-lab-lora --dry-run *)",
+      "Bash(uv run ml-lab-lora-infer *)",
+      "mcp__claude-in-chrome__tabs_context_mcp"
+    ]
+  }
+}

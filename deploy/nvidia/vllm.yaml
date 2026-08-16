@@ -1,0 +1,105 @@
+# This example is specifically for a Kubernetes cluster exposing NVIDIA GPUs.
+# It is intentionally small and is not a complete production deployment.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vllm
+  labels:
+    app: vllm
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 1
+  selector:
+    matchLabels:
+      app: vllm
+  template:
+    metadata:
+      labels:
+        app: vllm
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/path: /metrics
+        prometheus.io/port: "8000"
+    spec:
+      terminationGracePeriodSeconds: 60
+      containers:
+        - name: vllm
+          # Pin a tested image digest before using this beyond a disposable lab.
+          image: vllm/vllm-openai:latest
+          args:
+            - --model
+            - Qwen/Qwen3-0.6B
+            - --host
+            - 0.0.0.0
+            - --port
+            - "8000"
+            - --generation-config
+            - vllm
+            - --max-model-len
+            - "4096"
+            - --max-num-seqs
+            - "16"
+            - --enable-prefix-caching
+            - --gpu-memory-utilization
+            - "0.90"
+          ports:
+            - name: http
+              containerPort: 8000
+          resources:
+            requests:
+              cpu: "2"
+              memory: 8Gi
+              nvidia.com/gpu: "1"
+            limits:
+              cpu: "4"
+              memory: 16Gi
+              nvidia.com/gpu: "1"
+          startupProbe:
+            httpGet:
+              path: /health
+              port: http
+            periodSeconds: 10
+            failureThreshold: 60
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: http
+            periodSeconds: 5
+            failureThreshold: 3
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: http
+            periodSeconds: 15
+            failureThreshold: 3
+          lifecycle:
+            preStop:
+              exec:
+                command: ["/bin/sh", "-c", "sleep 20"]
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: vllm
+spec:
+  selector:
+    app: vllm
+  ports:
+    - name: http
+      port: 8000
+      targetPort: http
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: vllm
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: vllm
+

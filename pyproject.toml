@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ml-training-inference-labs"
+version = "0.3.0"
+description = "Beginner-friendly machine-learning training and inference labs"
+requires-python = ">=3.11"
+
+[project.optional-dependencies]
+lora = [
+    "accelerate>=1.0",
+    "datasets>=3.0",
+    "peft>=0.13",
+    "torch>=2.4",
+    "transformers>=4.45",
+]
+
+[project.scripts]
+inference-lab-doctor = "inference_labs.doctor:main"
+inference-lab-serve = "inference_labs.serve:main"
+inference-lab-loadtest = "inference_labs.loadtest:main"
+ml-lab-linear = "training_labs.linear_regression:main"
+ml-lab-kmeans = "training_labs.kmeans:main"
+ml-lab-q-learning = "training_labs.q_learning:main"
+ml-lab-lora = "training_labs.lora_finetune:main"
+ml-lab-lora-infer = "training_labs.lora_inference:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["inference_labs*", "training_labs*"]
