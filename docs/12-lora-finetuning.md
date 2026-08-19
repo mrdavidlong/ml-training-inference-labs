@@ -757,3 +757,17 @@ Then `training_labs/lora_inference.py`, which is the other half:
 - PEFT quicktour: https://huggingface.co/docs/peft/quicktour
 - PEFT LoRA reference: https://huggingface.co/docs/peft/en/package_reference/lora
 - Causal language modeling: https://huggingface.co/docs/transformers/en/tasks/language_modeling
+
+## Next
+
+This lab is the bridge between the two tracks. It is the first one where you
+train a *real* language model, and the first whose output is used by generating
+text rather than by reading a number.
+
+- [Inference fundamentals](01-inference-basics.md) — tokens, prefill and
+  decode, and the KV cache mentioned above (`use_cache = False`).
+- [How vLLM works](02-vllm-architecture.md) — what changes when the same kind
+  of model is served to many users at once instead of one prompt at a time.
+- [Datasets](13-datasets.md) — the checklist before training on public data.
+- [Training overview](08-training-overview.md) — where transfer learning sits
+  among the four strategies.
