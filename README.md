@@ -252,7 +252,7 @@ uv sync
 
    - Apple Silicon: follow [Complete Apple Silicon setup and run](#complete-apple-silicon-setup-and-run)
      below. It uses the official vLLM-Metal installer.
-   - NVIDIA: follow [installation](docs/00-installation.md#nvidia-cuda).
+   - NVIDIA: follow [installation](docs/00-installation.md#step-2b--nvidia-cuda).
 
 4. Preview what will run:
 
@@ -765,7 +765,7 @@ with a working NVIDIA driver.
    ```
 
    `ready` stays false until vLLM itself is installed, which is the next step.
-4. Install vLLM for CUDA following [installation](docs/00-installation.md#nvidia-cuda),
+4. Install vLLM for CUDA following [installation](docs/00-installation.md#step-2b--nvidia-cuda),
    then preview the server command without starting it:
 
    ```bash

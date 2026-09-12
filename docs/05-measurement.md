@@ -226,14 +226,14 @@ compared later.
 ## Saving results
 
 ```bash
-mkdir -p results        # --json-output will not create the directory
 inference-lab-loadtest --requests 60 --concurrency 8 --stream \
   --json-output results/learning-c8-run1.json
 ```
 
-Name files so the configuration is visible without opening them:
-`<profile>-c<concurrency>-run<n>.json`. `results/*.json` is gitignored, since
-measurements are specific to one machine and one moment.
+`--json-output` creates any missing directories, so `results/` does not have
+to exist first. Name files so the configuration is visible without opening
+them: `<profile>-c<concurrency>-run<n>.json`. `results/*.json` is gitignored,
+since measurements are specific to one machine and one moment.
 
 ## Pass/fail thresholds
 

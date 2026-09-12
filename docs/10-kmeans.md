@@ -241,7 +241,7 @@ elsewhere.
    the cluster sizes — which is why the lab prints them.
 2. **Standardize the columns** and see whether the assignments change.
 3. **Sweep seeds** at K = 3 and K = 5. Which is more stable?
-4. **Run Iris** ([datasets](13-datasets.md#iris---clustering)) where the true
+4. **Run Iris** ([datasets](13-datasets.md#iris--clustering)) where the true
    answer is known, and check that silhouette recovers K = 3.
 
 ## Useful extensions

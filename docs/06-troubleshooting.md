@@ -53,7 +53,6 @@ state. Only the serving labs need step 2.
 | Model refuses to load on Metal | [The model does not load on Metal](#the-model-does-not-load-on-metal) |
 | Client cannot connect | [Healthy server, no connection](#healthy-server-but-the-client-cannot-connect) |
 | `"mean_ttft_ms": null` | [TTFT is null](#ttft-is-null) |
-| `FileNotFoundError` writing JSON | [json-output fails](#json-output-fails-with-filenotfounderror) |
 | `ModuleNotFoundError: torch` | [Missing optional dependency](#missing-optional-dependency) |
 | CI fails on `uv sync --locked` | [The lock file is stale](#the-lock-file-is-stale) |
 | Results vary wildly between runs | [Unstable measurements](#unstable-measurements) |
@@ -240,20 +239,6 @@ streaming there are no chunks to time. Add `--stream`:
 
 ```bash
 inference-lab-loadtest --requests 40 --concurrency 8 --stream
-```
-
-## json-output fails with FileNotFoundError
-
-```text
-FileNotFoundError: [Errno 2] No such file or directory: 'results/run1.json'
-```
-
-`--json-output` writes the file but does not create the directory, and
-`results/` is not in a fresh clone because `results/*.json` is gitignored.
-Create it once:
-
-```bash
-mkdir -p results
 ```
 
 ## Missing optional dependency

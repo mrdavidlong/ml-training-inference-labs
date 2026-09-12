@@ -46,6 +46,7 @@ import urllib.error
 import urllib.request
 import uuid
 from dataclasses import dataclass
+from pathlib import Path
 
 from inference_labs.metrics import Summary, summarize
 
@@ -231,6 +232,26 @@ def build_parser() -> argparse.ArgumentParser:
     return parser
 
 
+def write_json_output(path: str, payload: dict[str, object]) -> None:
+    """Write one summary to disk as JSON, creating any missing directories.
+
+    The obvious destination is something like `results/latency-run1.json`, but
+    `results/` is untracked and absent on a fresh clone, so a plain `open`
+    would fail with FileNotFoundError after the load test had already run and
+    the measurements would be lost. Creating the parents first makes the flag
+    behave the way the docs use it.
+
+    Args:
+        path: Destination file path. Its parent directories are created if
+            they do not already exist.
+        payload: The summary dictionary to serialize.
+    """
+    Path(path).parent.mkdir(parents=True, exist_ok=True)
+    with open(path, "w", encoding="utf-8") as handle:
+        json.dump(payload, handle, indent=2)
+        handle.write("\n")
+
+
 def main() -> None:
     """Run one load test, print the summary, and exit with a meaningful code.
 
@@ -257,9 +278,7 @@ def main() -> None:
     if args.json_output:
         # Saved so runs can be compared later. RESULTS.md is the worksheet for
         # recording what hardware and settings produced each file.
-        with open(args.json_output, "w", encoding="utf-8") as handle:
-            json.dump(output, handle, indent=2)
-            handle.write("\n")
+        write_json_output(args.json_output, output)
 
     # Checked after writing the file, so a failing run still leaves its data
     # behind for inspection.

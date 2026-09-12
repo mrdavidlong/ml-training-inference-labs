@@ -271,7 +271,6 @@ inference-lab-serve --profile latency
 throw it away:
 
 ```bash
-mkdir -p results        # --json-output will not create the directory for you
 inference-lab-loadtest --requests 5  --concurrency 1 --stream   # discard
 inference-lab-loadtest --requests 60 --concurrency 8 --stream \
   --json-output results/latency-c8-run1.json
