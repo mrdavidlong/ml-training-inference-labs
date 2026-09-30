@@ -3,6 +3,9 @@
 Terms used across this repository, grouped by where you will meet them. Each
 entry says what it means, and where it shows up in the labs.
 
+For a fuller summary of each concept — what it is, when to use it, how it
+works, and its risks — see [Concepts at a glance](14-concepts-at-a-glance.md).
+
 Jump to: [Training](#training-concepts) · [Inference](#inference-concepts) ·
 [Serving and performance](#serving-and-performance) ·
 [Measurement](#measurement-and-reliability) ·

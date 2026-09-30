@@ -125,6 +125,10 @@ ITL (Inter-Token Latency)
   once.
 - How to run the same HTTP workload against Apple Metal or NVIDIA CUDA.
 
+Want the short version of each concept first?
+[Concepts at a glance](docs/14-concepts-at-a-glance.md) has a one-card summary
+of each: what it is, when to use it, how it works, and its risks.
+
 ## Repository map
 
 ```text
@@ -846,6 +850,7 @@ inference commands above target real vLLM inference.
 12. [Measurement and observability](docs/05-measurement.md)
 13. [Troubleshooting](docs/06-troubleshooting.md)
 14. [Glossary](docs/07-glossary.md)
+15. [Concepts at a glance](docs/14-concepts-at-a-glance.md)
 
 ## Upstream references
 
